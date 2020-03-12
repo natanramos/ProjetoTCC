@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>EC - Flexão</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript">
+        
+        // Início canvas 1
+        
+        var can = function(){
+            
+            var canvas;
+            var context;
+            var curva = 95;
+            var yFlexa = 25;
+            var yFlexa2 = 55;
+            var intervalo;
+            
+            return {
+                draw: function(){
+                    
+                    context.clearRect(20,60,290,300);
+                    
+                    context.lineWidth = 15;
+                    context.beginPath();
+                    context.moveTo(33,95);
+                    context.bezierCurveTo(165,curva,165,curva,299,95);
+                    context.stroke();
+                    
+                    context.clearRect(150,yFlexa,25,30);
+                    
+                    yFlexa = yFlexa + 1;
+                    yFlexa2 = yFlexa2 + 1;
+                    
+                    context.fillStyle = "red";
+                    context.fillRect(160,yFlexa,7,30);
+                    context.fillRect(155,yFlexa2,17,1);
+                    context.fillRect(156,yFlexa2+1,15,1);
+                    context.fillRect(157,yFlexa2+2,13,1);
+                    context.fillRect(158,yFlexa2+3,11,1);
+                    context.fillRect(159,yFlexa2+4,9,1);
+                    context.fillRect(160,yFlexa2+5,7,1);
+                    context.fillRect(161,yFlexa2+6,5,1);
+                    context.fillRect(162,yFlexa2+7,3,1);
+                    context.fillRect(163,yFlexa2+8,1,1);
+                    
+                    curva = curva + 1;
+                    
+                    context.fillStyle = "black";
+                    context.fillRect(30,115,16,2);
+                    context.fillRect(37,103,3,12);
+                    context.fillRect(286,115,16,2);
+                    context.fillRect(293,103,3,12);
+                    
+                    if(curva === 170){
+                        alteraBotao(true,"iniciarAnimacao");
+                        alteraBotao(false,"reiniciarAnimacao");
+                        window.clearInterval(intervalo);
+                    }
+                    
+                },
+                animar: function(){
+                    
+                    canvas = document.getElementById("myCanvas");
+                    context = canvas.getContext("2d");
+                    
+                    context.fillStyle = "red";
+                    context.fillRect(160,25,7,30);
+                    context.fillRect(155,55,17,1);
+                    context.fillRect(156,56,15,1);
+                    context.fillRect(157,57,13,1);
+                    context.fillRect(158,58,11,1);
+                    context.fillRect(159,59,9,1);
+                    context.fillRect(160,60,7,1);
+                    context.fillRect(161,61,5,1);
+                    context.fillRect(162,62,3,1);
+                    context.fillRect(163,63,1,1);
+                    context.font = "16px Arial";
+                    context.fillText("Força",145,20);
+                    
+                    context.strokeStyle = "#98713D";
+                    
+                    intervalo = setInterval(can.draw,80);
+                },
+                reiniciar: function(){
+                    
+                    canvas = document.getElementById("myCanvas");
+                    context = canvas.getContext("2d");
+                    
+                    context.clearRect(0,0,500,180);
+                    
+                    curva = 95;
+                    yFlexa = 25;
+                    yFlexa2 = 55;
+                    
+                    context.strokeStyle = "#98713D";
+                    context.lineWidth = 15;
+                    context.beginPath();
+                    context.moveTo(33,95);
+                    context.bezierCurveTo(165,95,165,95,299,95);
+                    context.stroke();
+                    
+                    context.fillStyle = "black";
+                    context.fillRect(30,115,16,2);
+                    context.fillRect(37,103,3,12);
+                    context.fillRect(286,115,16,2);
+                    context.fillRect(293,103,3,12);
+                    
+                    alteraBotao(false,"iniciarAnimacao");
+                    alteraBotao(true,"reiniciarAnimacao");
+                }
+            };
+        }();
+        
+        // Fim canvas 1
+        
+        // Início canvas 2
+        
+        var can2 = function(){
+            
+            var canvas2;
+            var context2;
+            var yFinal = 70;
+            var yFlexa = 30;
+            var yFlexa2 = 50;
+            var intervalo;
+            
+            return {
+                draw: function(){
+                    
+                    context2.clearRect(33,60,290,100);
+                    
+                    context2.lineWidth = 15;
+                    context2.beginPath();
+                    context2.moveTo(33,70);
+                    context2.bezierCurveTo(80,70,80,70,230,yFinal);
+                    context2.stroke();
+                    
+                    context2.clearRect(205,yFlexa-0.8,25,30);
+                    
+                    yFlexa = yFlexa + 0.8;
+                    yFlexa2 = yFlexa2 + 0.8;
+                    
+                    context2.fillStyle = "red";
+                    context2.fillRect(216,yFlexa,7,20);
+                    context2.fillRect(211,yFlexa2,17,1);
+                    context2.fillRect(212,yFlexa2+1,15,1);
+                    context2.fillRect(213,yFlexa2+2,13,1);
+                    context2.fillRect(214,yFlexa2+3,11,1);
+                    context2.fillRect(215,yFlexa2+4,9,1);
+                    context2.fillRect(216,yFlexa2+5,7,1);
+                    context2.fillRect(217,yFlexa2+6,5,1);
+                    context2.fillRect(218,yFlexa2+7,3,1);
+                    context2.fillRect(219,yFlexa2+8,1,1);
+                    
+                    yFinal = yFinal + 1;
+                    
+                    if(yFinal === 160){
+                        alteraBotao(true,"iniciarAnimacao2");
+                        alteraBotao(false,"reiniciarAnimacao2");
+                        window.clearInterval(intervalo);
+                    }
+                    
+                },
+                animar: function(){
+                    
+                    canvas2 = document.getElementById("myCanvas2");
+                    context2 = canvas2.getContext("2d");
+                    
+                    context2.fillStyle = "red";
+                    context2.fillRect(216,30,7,20);
+                    context2.fillRect(211,50,17,1);
+                    context2.fillRect(212,51,15,1);
+                    context2.fillRect(213,52,13,1);
+                    context2.fillRect(214,53,11,1);
+                    context2.fillRect(215,54,9,1);
+                    context2.fillRect(216,55,7,1);
+                    context2.fillRect(217,56,5,1);
+                    context2.fillRect(218,57,3,1);
+                    context2.fillRect(219,58,1,1);
+                    context2.font = "16px Arial";
+                    context2.fillText("Força",198,20);
+                    
+                    context2.strokeStyle = "#98713D";
+                    
+                    intervalo = setInterval(can2.draw,80);
+                    
+                },
+                reiniciar: function(){
+                    
+                    canvas2 = document.getElementById("myCanvas2");
+                    context2 = canvas2.getContext("2d");
+                    
+                    context2.clearRect(0,0,500,180);
+                    
+                    yFinal = 70;
+                    yFlexa = 30;
+                    yFlexa2 = 50;
+                    
+                    context2.strokeStyle = "#98713D";
+                    context2.lineWidth = 15;
+                    context2.beginPath();
+                    context2.moveTo(33,70);
+                    context2.bezierCurveTo(165,70,165,70,230,70);
+                    context2.stroke();
+                    
+                    context2.fillStyle = "black";
+                    context2.fillRect(31,38,2,60);
+
+                    context2.strokeStyle = "#98713D";
+                    
+                    alteraBotao(false,"iniciarAnimacao2");
+                    alteraBotao(true,"reiniciarAnimacao2");
+                    
+                }
+            };
+        }();
+        
+        // Fim canvas 2
+        
+        function alteraBotao(booleano, nome){
+            var botao = document.getElementById(nome);
+            botao.disabled = booleano;
+        }
+        
+        function iniciar(){
+            
+            // Canvas 1
+            
+            var canvas;
+            var context;
+            
+            canvas = document.getElementById("myCanvas");
+            context = canvas.getContext("2d");
+
+            context.strokeStyle = "#98713D";
+            context.lineWidth = 15;
+            context.beginPath();
+            context.moveTo(33,95);
+            context.bezierCurveTo(165,95,165,95,299,95);
+            context.stroke();
+
+            context.fillStyle = "black";
+            context.fillRect(30,115,16,2);
+            context.fillRect(37,103,3,12);
+            context.fillRect(286,115,16,2);
+            context.fillRect(293,103,3,12);
+
+            context.strokeStyle = "#98713D";
+
+            alteraBotao(true,"reiniciarAnimacao");
+            
+            // Fim Canvas 1
+            
+            // Início Canvas 2
+            
+            var canvas2;
+            var context2;
+            
+            canvas2 = document.getElementById("myCanvas2");
+            context2 = canvas2.getContext("2d");
+
+            context2.strokeStyle = "#98713D";
+            context2.lineWidth = 15;
+            context2.beginPath();
+            context2.moveTo(33,70);
+            context2.bezierCurveTo(165,70,165,70,230,70);
+            context2.stroke();
+            
+            context2.fillStyle = "black";
+            context2.fillRect(31,38,2,60);
+
+            context2.strokeStyle = "#98713D";
+            
+            alteraBotao(true,"reiniciarAnimacao2");
+            
+            // Fim Canvas 2
+            
+        }
+        
+        window.onload = iniciar;
+    
+    </script>
+    
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            
+            <img src="./imagens/unesc.png" width="145" height="80" style="margin: 10px 0px 0px 45px;" alt="" >
+            
+            <ul class="sidebar-nav" style="margin-top: 100px;">
+                <li class="sidebar-brand">
+                    <a href="home.html">
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a href="compressao.html">Compressão</a>
+                </li>
+                <li>
+                    <a href="tracao.html">Tração</a>
+                </li>
+                <!--
+                <li>
+                    <a href="torcao">Torção</a>
+                </li>
+                -->
+                <li>
+                    <a href="flexao.html">Flexão</a>
+                </li>
+                <li>
+                    <a href="informacoes.html">Informações</a>
+                </li>
+            </ul>
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <h1>Flexão</h1>
+                        
+                        <!--
+                        <br />
+                        <p style="font-size: 18px; text-align: justify;">
+                            Página que irá representar o assunto sobre flexão
+                        </p>
+                        -->
+                        
+                        <br />
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Menu</a>
+                        
+                        <hr />
+                        
+                        <!-- Início canvas 1 -->
+                        
+                        <div id="divCanvas">
+                            <canvas id="myCanvas" width="500" height="180" style="border: 2px solid black;" ></canvas>
+                            <br>
+                            <button id="iniciarAnimacao" onclick="can.animar()" class="btn btn-success">
+                                Iniciar
+                            </button>
+                            <button id="reiniciarAnimacao" onclick="can.reiniciar()" class="btn btn-success">
+                                Reiniciar
+                            </button>
+                        </div>
+                        
+                        <!-- Fim canvas 1 -->
+                        
+                        <!-- Início canvas 2 -->
+                        
+                        <div id="divCanvas2" style="margin-top: 20px;">
+                            <canvas id="myCanvas2" width="500" height="180" style="border: 2px solid black;" ></canvas>
+                            <br>
+                            <button id="iniciarAnimacao2" onclick="can2.animar()" class="btn btn-success">
+                                Iniciar
+                            </button>
+                            <button id="reiniciarAnimacao2" onclick="can2.reiniciar()" class="btn btn-success">
+                                Reiniciar
+                            </button>
+                        </div>
+                        
+                        <!-- Fim canvas 2 -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="./js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

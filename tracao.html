@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>EC - Tração</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript">
+        
+        var can = function(){
+            
+            var canvas;
+            var context;
+            var x = 100;
+            var y = 150;
+            var x1 = 100;
+            var largura = 50;
+            var altura = 180;
+            var intervalo;
+            var xaux = 150;
+            
+            return {
+                draw: function(){
+                    
+                    context.clearRect(x1 - 0.5,y,1,altura);
+                    context.clearRect(xaux - 0.5,y,1,altura);
+                    xaux = xaux - 0.5;
+                    
+                    largura = largura - 1;
+                    altura = altura + 1;
+                    y = y - 1;
+                    
+                    x1 = x1 + 0.5;
+                    
+                    context.fillRect(x1,y,largura,altura);
+                    
+                    if(largura === 20){
+                        alteraBotao(true,"iniciarAnimacao");
+                        alteraBotao(false,"reiniciarAnimacao");
+                        window.clearInterval(intervalo);   
+                        context.strokeStyle = "red";
+                        context.strokeRect(99,149,52,182);
+                    }
+                },
+                init: function(){
+                    canvas = document.getElementById("myCanvas");
+                    context = canvas.getContext("2d");
+                    context.fillStyle = "#98713D";
+                    context.fillRect(100,150,50,180);
+                    context.fillStyle = "black";
+                    context.fillRect(10,331,235,2);
+                    alteraBotao(true,"reiniciarAnimacao");
+                },
+                animar: function(){
+                    context.fillStyle = "red";
+                    context.fillRect(121,22,7,40);
+                    context.fillRect(116,21,17,1);
+                    context.fillRect(117,20,15,1);
+                    context.fillRect(118,19,13,1);
+                    context.fillRect(119,18,11,1);
+                    context.fillRect(120,17,9,1);
+                    context.fillRect(121,16,7,1);
+                    context.fillRect(122,15,5,1);
+                    context.fillRect(123,14,3,1);
+                    context.fillRect(124,13,1,1);
+                    context.font = "16px Arial";
+                    context.fillText("Força",150,40);
+                    context.fillStyle = "#98713D";
+                    intervalo = setInterval(can.draw,80);
+                },
+                reiniciar: function(){
+                    context.clearRect(0,0,500,380);
+                    context.fillRect(100,150,50,180);
+                    context.fillStyle = "black";
+                    context.fillRect(10,331,235,2);
+                    x = 100;
+                    y = 150;
+                    x1 = 100;
+                    largura = 50;
+                    altura = 180;
+                    xaux = 150;
+                    alteraBotao(false,"iniciarAnimacao");
+                    alteraBotao(true,"reiniciarAnimacao");
+                }
+            };
+        }();
+    
+        function alteraBotao(booleano, nome){
+            var botao = document.getElementById(nome);
+            botao.disabled = booleano;
+        }
+    
+        window.onload = can.init;
+    
+    </script>
+    
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            
+            <img src="./imagens/unesc.png" width="145" height="80" style="margin: 10px 0px 0px 45px;" alt="" >
+            
+            <ul class="sidebar-nav" style="margin-top: 100px;">
+                <li class="sidebar-brand">
+                    <a href="home.html">
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a href="compressao.html">Compressão</a>
+                </li>
+                <li>
+                    <a href="tracao.html">Tração</a>
+                </li>
+                <!--
+                <li>
+                    <a href="torcao">Torção</a>
+                </li>
+                -->
+                <li>
+                    <a href="flexao.html">Flexão</a>
+                </li>
+                <li>
+                    <a href="informacoes.html">Informações</a>
+                </li>
+            </ul>
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <h1>Tração</h1>
+                        
+                        <!--
+                        <br />
+                        <p style="font-size: 18px; text-align: justify;">
+                            Página que irá representar o assunto sobre tração
+                        </p>
+                        -->
+                        
+                        <br />
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Menu</a>
+                        
+                        <hr />
+                        
+                        <div id="divCanvas">
+                            <canvas id="myCanvas" width="500" height="380" style="border: 2px solid black;" ></canvas>
+                        </div>
+                        
+                        <br />
+                        <div>
+                            <button id="iniciarAnimacao" onclick="can.animar()" class="btn btn-success">
+                                Iniciar
+                            </button>
+                            <button id="reiniciarAnimacao" onclick="can.reiniciar()" class="btn btn-success">
+                                Reiniciar
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="./js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

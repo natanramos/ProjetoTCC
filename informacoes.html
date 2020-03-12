@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>EC - Informações</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            
+            <img src="./imagens/unesc.png" width="145" height="80" style="margin: 10px 0px 0px 45px;" alt="" >
+            
+            <ul class="sidebar-nav" style="margin-top: 100px;">
+                <li class="sidebar-brand">
+                    <a href="home.html">
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a href="compressao.html">Compressão</a>
+                </li>
+                <li>
+                    <a href="tracao.html">Tração</a>
+                </li>
+                <!--
+                <li>
+                    <a href="torcao">Torção</a>
+                </li>
+                -->
+                <li>
+                    <a href="flexao.html">Flexão</a>
+                </li>
+                <li>
+                    <a href="informacoes.html">Informações</a>
+                </li>
+            </ul>
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <h1>Informações sobre o aplicativo</h1>
+                        
+                        <br />
+                        <!-- Informações Gerais -->
+                        <p style="font-size: 18px; text-align: justify;">
+                            Este aplicativo foi desenvolvido na Universidade do Extremo Sul Catarinense - UNESC pelo acadêmico
+                            <span style="color: #2e6da4">Natan de Souza Ramos</span> para obtenção do grau de Bacharel no curso de
+                            Ciência da Computação no primeiro semestre de 2015. O aplicativo foi desenvolvido com base na tecnologia
+                            HTML5, explorando principalmente o elemento <span style="color: #2e6da4; font-style: italic;">canvas</span>,
+                            o qual fornece propriedades para renderização e manipulação de imagens e formas, possibilitando o
+                            desenvolvimento de animações.
+                        </p>
+                        
+                        <br />
+                        <p style="font-size: 18px; text-align: justify;">
+                            O trabalho foi realizado em parceria com o curso de Engenharia Civil da UNESC, onde houve a colaboração
+                            de alguns professores da área. Foi indentificada a necessidade da construção de uma ferramenta que pudesse
+                            auxiliar no aprendizado de alguns conceitos e técnicas relacionadas à engenharia. Desta forma, surgiu a
+                            oportunidade do desenvolvimento deste aplicativo, onde são explorados os recursos computacionais a fim de
+                            construir animações e simulações para exemplificar os conceitos mencionados de compressão, tração e flexão.
+                        </p>
+                        <br />
+                        <br />
+                        
+                        <!-- Orientdor -->
+                        <p style="font-size: 18px; text-align: justify;">
+                            <span>Orientador (Professor do Curso de Ciência da Computação): </span><span style="color: #2e6da4">MSc. Luciano Antunes</span>
+                        </p>
+                        
+                        <!-- Coorientador -->
+                        <p style="font-size: 18px; text-align: justify;">
+                            <span>Coorientador (Professor do Curso de Engenharia Civil): </span><span style="color: #2e6da4">MSc. Marcio Vito</span>
+                        </p>
+                        
+                        <br />
+                        <a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Menu</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="./js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
